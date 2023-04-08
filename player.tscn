@@ -40,7 +40,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hg3"]
 size = Vector2(39, 41.75)
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Area2D"]
 script = ExtResource("1_s7m3v")
 
 [node name="Body" type="CharacterBody2D" parent="."]
@@ -53,5 +53,9 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Body"]
+position = Vector2(-0.5, -1.125)
+shape = SubResource("RectangleShape2D_v0hg3")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1.125)
 shape = SubResource("RectangleShape2D_v0hg3")

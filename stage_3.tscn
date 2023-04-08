@@ -45,7 +45,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_be75v")
 }, {
-"duration": 0.7,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_gx8bl")
 }, {
 "duration": 1.0,
@@ -86,9 +86,9 @@ size = Vector2(1021.5, 102.5)
 [node name="bgsindy" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 300)
 sprite_frames = SubResource("SpriteFrames_qb4fp")
-animation = &"dab"
+animation = &"mad"
 autoplay = "mad"
-frame_progress = 0.591149
+frame_progress = 0.32371
 
 [node name="ground" type="StaticBody2D" parent="."]
 
