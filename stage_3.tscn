@@ -1,14 +1,94 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqg3n6t3l6kt8"]
+[gd_scene load_steps=14 format=3 uid="uid://bqg3n6t3l6kt8"]
 
 [ext_resource type="PackedScene" uid="uid://vi05liwbln31" path="res://player.tscn" id="1_5g0mm"]
+[ext_resource type="Texture2D" uid="uid://chq1jrs1f4r8x" path="res://res/art/sindy.png" id="1_pxiyw"]
 [ext_resource type="PackedScene" uid="uid://dea5l8a2dvixj" path="res://ui.tscn" id="1_u8mmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi1vr"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(2048, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be75v"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(3072, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx8bl"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(4096, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyhuo"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(5120, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5684"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(6144, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0pww"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(7168, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3mqo"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(0, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nfny"]
+atlas = ExtResource("1_pxiyw")
+region = Rect2(1024, 0, 1024, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qb4fp"]
+animations = [{
+"frames": [{
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_wi1vr")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_be75v")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_gx8bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyhuo")
+}],
+"loop": true,
+"name": &"dab",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5684")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0pww")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3mqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nfny")
+}],
+"loop": true,
+"name": &"mad",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1y7a"]
 size = Vector2(1021.5, 102.5)
 
 [node name="Stage3" type="Node2D"]
 
-[node name="UI" parent="." instance=ExtResource("1_u8mmp")]
+[node name="bgsindy" type="AnimatedSprite2D" parent="."]
+position = Vector2(512, 300)
+sprite_frames = SubResource("SpriteFrames_qb4fp")
+animation = &"dab"
+autoplay = "mad"
+frame_progress = 0.591149
 
 [node name="ground" type="StaticBody2D" parent="."]
 
@@ -18,3 +98,5 @@ shape = SubResource("RectangleShape2D_o1y7a")
 
 [node name="Player" parent="." instance=ExtResource("1_5g0mm")]
 position = Vector2(96, 472)
+
+[node name="UI" parent="." instance=ExtResource("1_u8mmp")]
