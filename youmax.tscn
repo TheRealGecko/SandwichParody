@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbtgp0jqtbak1"]
+
+[ext_resource type="Texture2D" uid="uid://dsc48gtba03kk" path="res://res/art/youmax.png" id="1_qa3sl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk448"]
+atlas = ExtResource("1_qa3sl")
+region = Rect2(233, 0, 233, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdjtl"]
+atlas = ExtResource("1_qa3sl")
+region = Rect2(0, 0, 230, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32pac"]
+atlas = ExtResource("1_qa3sl")
+region = Rect2(460, 0, 230, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_78fdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk448")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdjtl")
+}],
+"loop": true,
+"name": &"enraged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32pac")
+}],
+"loop": true,
+"name": &"sleepy",
+"speed": 5.0
+}]
+
+[node name="youmax" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_78fdj")
+animation = &"attack"
