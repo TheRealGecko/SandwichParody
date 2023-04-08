@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dea5l8a2dvixj"]
+[gd_scene load_steps=18 format=3 uid="uid://dea5l8a2dvixj"]
 
 [ext_resource type="Texture2D" uid="uid://k4l4kh817uaj" path="res://res/art/lovebar.png" id="1_dpyh2"]
+[ext_resource type="Script" path="res://ui.gd" id="1_u00lh"]
 [ext_resource type="Texture2D" uid="uid://ck0hd8tt5t2ff" path="res://res/art/hp.png" id="2_6lr05"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vel1"]
@@ -78,35 +79,35 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tre8o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpga2"]
 atlas = ExtResource("2_6lr05")
-region = Rect2(1000, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72plc"]
-atlas = ExtResource("2_6lr05")
-region = Rect2(800, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7awao"]
-atlas = ExtResource("2_6lr05")
-region = Rect2(600, 0, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fx6sy"]
-atlas = ExtResource("2_6lr05")
-region = Rect2(400, 0, 200, 200)
+region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y81mc"]
 atlas = ExtResource("2_6lr05")
 region = Rect2(200, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpga2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx6sy"]
 atlas = ExtResource("2_6lr05")
-region = Rect2(0, 0, 200, 200)
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7awao"]
+atlas = ExtResource("2_6lr05")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72plc"]
+atlas = ExtResource("2_6lr05")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tre8o"]
+atlas = ExtResource("2_6lr05")
+region = Rect2(1000, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d8un3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tre8o")
+"texture": SubResource("AtlasTexture_lpga2")
 }],
 "loop": true,
 "name": &"0",
@@ -114,7 +115,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72plc")
+"texture": SubResource("AtlasTexture_y81mc")
 }],
 "loop": true,
 "name": &"1",
@@ -122,7 +123,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7awao")
+"texture": SubResource("AtlasTexture_fx6sy")
 }],
 "loop": true,
 "name": &"2",
@@ -130,7 +131,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fx6sy")
+"texture": SubResource("AtlasTexture_7awao")
 }],
 "loop": true,
 "name": &"3",
@@ -138,7 +139,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y81mc")
+"texture": SubResource("AtlasTexture_72plc")
 }],
 "loop": true,
 "name": &"4",
@@ -146,7 +147,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lpga2")
+"texture": SubResource("AtlasTexture_tre8o")
 }],
 "loop": true,
 "name": &"5",
@@ -154,6 +155,7 @@ animations = [{
 }]
 
 [node name="UI" type="Node2D"]
+script = ExtResource("1_u00lh")
 
 [node name="lovebar" type="AnimatedSprite2D" parent="."]
 position = Vector2(75.5, 547.5)
@@ -167,4 +169,4 @@ position = Vector2(155.5, 547.5)
 scale = Vector2(0.275, 0.275)
 sprite_frames = SubResource("SpriteFrames_d8un3")
 animation = &"0"
-autoplay = "0"
+autoplay = "5"

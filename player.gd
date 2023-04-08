@@ -1,5 +1,9 @@
 extends Node2D
 
+# controls love + hp gauges
+var hp = 5
+var love = 0
+
 var dir = ""
 var jmpCnt = 0;
 var collide 
