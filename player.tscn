@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://vi05liwbln31"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_s7m3v"]
+[ext_resource type="Texture2D" uid="uid://b8cn2mw6wo6f6" path="res://res/art/batman.png" id="1_swbrk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doi7m"]
+atlas = ExtResource("1_swbrk")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tkh0"]
+atlas = ExtResource("1_swbrk")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdhqy"]
+atlas = ExtResource("1_swbrk")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uanjh"]
+animations = [{
+"frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_doi7m")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_8tkh0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdhqy")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hg3"]
+size = Vector2(39, 41.75)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_s7m3v")
+
+[node name="Body" type="CharacterBody2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Body"]
+position = Vector2(-20, -18)
+scale = Vector2(0.53, 0.53)
+sprite_frames = SubResource("SpriteFrames_uanjh")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Body"]
+position = Vector2(-0.5, -1.125)
+shape = SubResource("RectangleShape2D_v0hg3")
