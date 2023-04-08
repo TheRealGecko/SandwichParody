@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://cwrxvahmlndce"]
+[gd_scene load_steps=5 format=3 uid="uid://cwrxvahmlndce"]
+
+[ext_resource type="Script" path="res://stage_1.gd" id="1_tf1m8"]
+[ext_resource type="PackedScene" uid="uid://bbtgp0jqtbak1" path="res://youmax.tscn" id="3_s7ljw"]
+[ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="4_klmyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhyyu"]
+size = Vector2(1024, 20)
 
 [node name="stage_1" type="Node"]
+script = ExtResource("1_tf1m8")
+
+[node name="youmax" parent="." instance=ExtResource("3_s7ljw")]
+position = Vector2(920, 480)
+
+[node name="Player" parent="." instance=ExtResource("4_klmyt")]
+position = Vector2(168, 376)
+
+[node name="TeethTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="TeethSpawn1" type="Marker2D" parent="." groups=["teeth"]]
+position = Vector2(1024, 288)
+
+[node name="TeethSpawn2" type="Marker2D" parent="." groups=["teeth"]]
+position = Vector2(1024, 128)
+
+[node name="TeethSpawn3" type="Marker2D" parent="." groups=["teeth"]]
+position = Vector2(1024, 448)
+
+[node name="floor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(512, 608)
+shape = SubResource("RectangleShape2D_yhyyu")
+
+[node name="BlingTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="TeethTimer" to="." method="_on_teeth_timer_timeout"]
+[connection signal="timeout" from="BlingTimer" to="." method="_on_bling_timer_timeout"]

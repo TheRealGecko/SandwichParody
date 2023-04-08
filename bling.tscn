@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlnqsfu06hvye"]
+
+[ext_resource type="Script" path="res://bling.gd" id="1_e3a44"]
+[ext_resource type="Texture2D" uid="uid://l60xq2wpb2wv" path="res://res/art/objects.png" id="1_fdu01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugnsn"]
+atlas = ExtResource("1_fdu01")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b5h4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugnsn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xl32o"]
+radius = 14.0357
+
+[node name="bling" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_e3a44")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b5h4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xl32o")
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]
