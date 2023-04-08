@@ -32,7 +32,7 @@ sprite_frames = SubResource("SpriteFrames_b5h4p")
 shape = SubResource("CircleShape2D_xl32o")
 
 [node name="DisappearTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 9.0
 autostart = true
 
 [connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]
