@@ -2,13 +2,51 @@ extends Node2D
 
 
 var arm = preload("res://sindy.tscn")
+var qBank = ["What do a story, a cemetery, and a garden have in common?", "How thoroughly is your food chewed?", "K is for __", "Are you starting a pyramid scheme?", "gobble gooble goodle __", "Because of my reputation i have to be specific so you guys dont think im __", "If it has __, it can't be that bad"]
+var aBank = [["Plot", "Your mom", "R"], ["Your mom", "Ofc", "No??"], ["Kapitalism", "Kebab", "Your mom"], ["Join me", "Ofc not", "Your mom"], ["Your mom", "poodle", "moodle"], ["a Furry", "Your mom", "asbdkj"], ["Your mom", "Abs", "Food"]]
 
 func _ready():
-	phaseOne()
+	$Quiz.visible = false
+	#phaseOne()
+	quiz()
+
+var q = 0
 
 func quiz():
 	$bgsindy.animation = "dab" 
+	await get_tree().create_timer(1).timeout
+	randomize()
+	q = randi()%7
+	
+	$Quiz/Label.text = qBank[q]
+	$Quiz/Button1.text = aBank[q][0]
+	$Quiz/Button2.text = aBank[q][1]
+	$Quiz/Button3.text = aBank[q][2]
+	$Quiz.visible = true
+	
+	
+func phaseTwo():
+	$bgsindy.animation = "undab"
+	$bgsindy.play()
+	await get_tree().create_timer(0.5).timeout
+	$bgsindy.animation = "mad"
+	$bgsindy.play()
+	await get_tree().create_timer(1).timeout
+	lArm(450)
+	rArm(450)
 	await get_tree().create_timer(3).timeout
+	uArm(200)
+	rArm(300)
+	await get_tree().create_timer(3).timeout
+	uArm(600)
+	lArm(200)
+	await get_tree().create_timer(3).timeout
+	lArm(450)
+	rArm(450)
+	await get_tree().create_timer(1.5).timeout
+	lArm(250)
+	rArm(250)
+	quiz()
 	
 
 func phaseOne():
