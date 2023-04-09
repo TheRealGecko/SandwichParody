@@ -37,18 +37,18 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
+[node name="UI" parent="." instance=ExtResource("4_0f2bu")]
+
 [node name="ground" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2(513.25, 547.25)
 shape = SubResource("RectangleShape2D_qjeul")
 
-[node name="UI" parent="." instance=ExtResource("4_0f2bu")]
-
 [node name="LeftWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(-32, 301)
+position = Vector2(-16, 301)
 shape = SubResource("RectangleShape2D_8xs6i")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
@@ -57,6 +57,5 @@ shape = SubResource("RectangleShape2D_8xs6i")
 position = Vector2(1056, 304)
 shape = SubResource("RectangleShape2D_8xs6i")
 
-[connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
 [connection signal="timeout" from="TeethTimer" to="." method="_on_teeth_timer_timeout"]
 [connection signal="timeout" from="BlingTimer" to="." method="_on_bling_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vi05liwbln31"]
+[gd_scene load_steps=8 format=3 uid="uid://b0ov5lkgyb8st"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_s7m3v"]
 [ext_resource type="Texture2D" uid="uid://b8cn2mw6wo6f6" path="res://res/art/batman.png" id="1_swbrk"]

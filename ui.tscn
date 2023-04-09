@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dea5l8a2dvixj"]
+[gd_scene load_steps=18 format=3 uid="uid://dtkcx442xp3ny"]
 
 [ext_resource type="Texture2D" uid="uid://k4l4kh817uaj" path="res://res/art/lovebar.png" id="1_dpyh2"]
 [ext_resource type="Script" path="res://ui.gd" id="1_u00lh"]
