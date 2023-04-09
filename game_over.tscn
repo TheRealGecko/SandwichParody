@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd4i71el15pys"]
+
+[ext_resource type="Texture2D" uid="uid://csqa0ypqjihmi" path="res://res/art/game_over.png" id="1_7dwjx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eivde"]
+size = Vector2(1021, 597)
+
+[node name="game_over" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(513, 302)
+texture = ExtResource("1_7dwjx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(513.5, 301.5)
+shape = SubResource("RectangleShape2D_eivde")
+disabled = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
