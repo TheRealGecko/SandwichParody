@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwrxvahmlndce"]
+[gd_scene load_steps=8 format=3 uid="uid://cwrxvahmlndce"]
 
 [ext_resource type="Script" path="res://stage_1.gd" id="1_tf1m8"]
+[ext_resource type="Texture2D" uid="uid://cuaael14lu0fy" path="res://res/art/youmin-bg.png" id="2_qlcse"]
 [ext_resource type="PackedScene" uid="uid://rtqheocqaykx" path="res://youmax.tscn" id="3_s7ljw"]
 [ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="4_0f2bu"]
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="4_klmyt"]
@@ -13,6 +14,11 @@ size = Vector2(69, 655.75)
 
 [node name="stage_1" type="Node"]
 script = ExtResource("1_tf1m8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_qlcse")
 
 [node name="youmax" parent="." instance=ExtResource("3_s7ljw")]
 position = Vector2(896, 401)
@@ -28,15 +34,12 @@ position = Vector2(1024, 440)
 
 [node name="TeethTimer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="BlingTimer" type="Timer" parent="."]
 wait_time = 2.5
-autostart = true
 
 [node name="FireballTimer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="UI" parent="." instance=ExtResource("4_0f2bu")]
 
@@ -49,7 +52,7 @@ shape = SubResource("RectangleShape2D_qjeul")
 [node name="ceiling" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
-position = Vector2(520, -40)
+position = Vector2(528, -48)
 shape = SubResource("RectangleShape2D_qjeul")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
@@ -70,6 +73,63 @@ position = Vector2(1024, 112)
 [node name="FireballSpawn2" type="Marker2D" parent="." groups=["fireball"]]
 position = Vector2(1024, 344)
 
+[node name="RestartText" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 288.0
+offset_top = 144.0
+offset_right = 736.0
+offset_bottom = 296.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]LMAO YOU DIED
+Time to restart!"
+
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="Dia" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -260.0
+offset_right = 392.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.196078, 0.254902, 1)
+
+[node name="Name" type="Label" parent="Dia"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 16.0
+offset_right = 151.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 30
+text = "Sample"
+
+[node name="Text" type="Label" parent="Dia"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 64.0
+offset_right = 572.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 17
+text = "Sample"
+
+[node name="Press enter" type="Label" parent="Dia"]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 136.0
+offset_right = 769.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 15
+text = "Press enter to continue"
+
 [connection signal="timeout" from="TeethTimer" to="." method="_on_teeth_timer_timeout"]
 [connection signal="timeout" from="BlingTimer" to="." method="_on_bling_timer_timeout"]
 [connection signal="timeout" from="FireballTimer" to="." method="_on_fireball_timer_timeout"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
