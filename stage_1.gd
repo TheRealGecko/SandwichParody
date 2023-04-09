@@ -27,8 +27,9 @@ func _win_game():
 	queue_free()
 
 func _game_over():
-	$RestartText.visible = true
-	$RestartTimer.start()
+	# mb add a u died screen here
+	get_tree().reload_current_scene()
+
 
 func _on_fireball_timer_timeout():
 	var nodes = get_tree().get_nodes_in_group("fireball")
@@ -37,7 +38,3 @@ func _on_fireball_timer_timeout():
 	add_child(fireball)
 	fireball.position = node.position
 	fireball.ogY = node.global_position.y
-
-func _on_restart_timer_timeout():
-	$RestartText.visible = false
-	get_tree().reload_current_scene()
