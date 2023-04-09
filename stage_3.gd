@@ -4,6 +4,14 @@ extends Node2D
 var arm = preload("res://sindy.tscn")
 
 func _ready():
+	phaseOne()
+
+func quiz():
+	$bgsindy.animation = "dab" 
+	await get_tree().create_timer(3).timeout
+	
+
+func phaseOne():
 	await get_tree().create_timer(1).timeout
 	lArm(450)
 	await get_tree().create_timer(3).timeout
@@ -25,10 +33,9 @@ func _ready():
 	lArm(450)
 	await get_tree().create_timer(0.5).timeout
 	lArm(250)
+	await get_tree().create_timer(5).timeout
+	quiz()
 
-func _process(delta):
-	pass
-	
 
 func lArm(trans):
 	var armmm = arm.instantiate()
