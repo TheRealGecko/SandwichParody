@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce6xv30v8a3xy"]
+[gd_scene load_steps=6 format=3 uid="uid://nyyh62k562h4"]
 
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_3x3pt"]
 [ext_resource type="Script" path="res://scene_2.gd" id="1_7rldr"]
+[ext_resource type="PackedScene" uid="uid://c8lqm027vfbno" path="res://node_2d.tscn" id="3_g0pu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gemq"]
 size = Vector2(1021.5, 102.5)
@@ -12,8 +13,7 @@ size = Vector2(39.5, 601)
 [node name="scene2" type="Node2D"]
 script = ExtResource("1_7rldr")
 
-[node name="Body" parent="." instance=ExtResource("1_3x3pt")]
-position = Vector2(128, 141)
+[node name="Player" parent="." instance=ExtResource("1_3x3pt")]
 
 [node name="ground" type="StaticBody2D" parent="."]
 
@@ -34,5 +34,7 @@ shape = SubResource("RectangleShape2D_mwvtv")
 [node name="chocobarTimer" type="Timer" parent="."]
 wait_time = 3.071
 autostart = true
+
+[node name="tail" parent="." instance=ExtResource("3_g0pu7")]
 
 [connection signal="timeout" from="chocobarTimer" to="." method="_on_chocobar_timer_timeout"]

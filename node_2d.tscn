@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8lqm027vfbno"]
+
+[ext_resource type="Texture2D" uid="uid://w42olsbkwiaa" path="res://res/art/macbeth AND straight tail.png" id="1_7t0m6"]
+[ext_resource type="Texture2D" uid="uid://b81mn75jdrijp" path="res://res/art/straight-tail-macbeth.png" id="1_dqwwc"]
+
+[sub_resource type="GDScript" id="GDScript_iaid6"]
+script/source = "extends Node2D
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+		print(get_parent().get_node(\"Player\").global_position.y);
+		$AnimationPlayer.play(\"stretch\")
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qog18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7t0m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_dqwwc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rs1wd"]
+radius = 16.9442
+
+[sub_resource type="Animation" id="Animation_t3mqy"]
+resource_name = "stretch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-800, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D:floor_constant_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_plntw"]
+_data = {
+"stretch": SubResource("Animation_t3mqy")
+}
+
+[node name="tail" type="Node2D"]
+script = SubResource("GDScript_iaid6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+floor_constant_speed = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(1230, 473)
+scale = Vector2(1.18182, 1.18182)
+sprite_frames = SubResource("SpriteFrames_qog18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1135, 459)
+scale = Vector2(1.18182, 1.18182)
+shape = SubResource("CircleShape2D_rs1wd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_plntw")
+}
