@@ -18,7 +18,7 @@ func _on_bling_timer_timeout():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var randomX = rng.randi_range(180, 770)
-	var randomY = rng.randi_range(70, 500)
+	var randomY = rng.randi_range(70, 490)
 	var bling = preload("res://bling.tscn").instantiate()
 	add_child(bling)
 	bling.position = Vector2(randomX, randomY)
