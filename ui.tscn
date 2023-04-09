@@ -161,7 +161,7 @@ script = ExtResource("1_u00lh")
 position = Vector2(75.5, 547.5)
 scale = Vector2(0.275, 0.275)
 sprite_frames = SubResource("SpriteFrames_4ahwu")
-animation = &"0"
+animation = &"5"
 autoplay = "0"
 
 [node name="hp" type="AnimatedSprite2D" parent="."]

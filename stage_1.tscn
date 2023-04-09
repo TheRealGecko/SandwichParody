@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://cwrxvahmlndce"]
+[gd_scene load_steps=7 format=3 uid="uid://cwrxvahmlndce"]
+
+[ext_resource type="Script" path="res://stage_1.gd" id="1_tf1m8"]
+[ext_resource type="PackedScene" uid="uid://bbtgp0jqtbak1" path="res://youmax.tscn" id="3_s7ljw"]
+[ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="4_0f2bu"]
+[ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="4_klmyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjeul"]
+size = Vector2(1021.5, 102.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xs6i"]
+size = Vector2(69, 597)
 
 [node name="stage_1" type="Node"]
+script = ExtResource("1_tf1m8")
+
+[node name="youmax" parent="." instance=ExtResource("3_s7ljw")]
+position = Vector2(896, 401)
+
+[node name="Player" parent="." instance=ExtResource("4_klmyt")]
+position = Vector2(88, 472)
+
+[node name="TeethSpawn1" type="Marker2D" parent="." groups=["teeth"]]
+position = Vector2(1024, 288)
+
+[node name="TeethSpawn2" type="Marker2D" parent="." groups=["teeth"]]
+position = Vector2(1024, 104)
+
+[node name="TeethSpawn3" type="Marker2D" parent="." groups=["teeth"]]
+position = Vector2(1024, 471)
+
+[node name="TeethTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="BlingTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(513.25, 547.25)
+shape = SubResource("RectangleShape2D_qjeul")
+
+[node name="UI" parent="." instance=ExtResource("4_0f2bu")]
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-32, 301)
+shape = SubResource("RectangleShape2D_8xs6i")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(1056, 304)
+shape = SubResource("RectangleShape2D_8xs6i")
+
+[connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
+[connection signal="timeout" from="TeethTimer" to="." method="_on_teeth_timer_timeout"]
+[connection signal="timeout" from="BlingTimer" to="." method="_on_bling_timer_timeout"]
