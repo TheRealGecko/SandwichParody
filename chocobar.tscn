@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://rqdsojkpc373"]
+[gd_scene load_steps=6 format=3 uid="uid://dhhub6p0f5bh1"]
 
 [ext_resource type="Script" path="res://chocobar.gd" id="1_jhueg"]
 [ext_resource type="Texture2D" uid="uid://l60xq2wpb2wv" path="res://res/art/objects.png" id="2_usp1k"]
@@ -19,21 +19,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iufx3"]
-size = Vector2(19, 32)
+size = Vector2(22, 34)
 
 [node name="chocobar" type="Area2D"]
 script = ExtResource("1_jhueg")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 6)
 sprite_frames = SubResource("SpriteFrames_8kkwb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, -6)
+position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_iufx3")
 
-[node name="DisappearTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]
