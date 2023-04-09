@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhhub6p0f5bh1"]
+
+[ext_resource type="Script" path="res://chocobar.gd" id="1_jhueg"]
+[ext_resource type="Texture2D" uid="uid://l60xq2wpb2wv" path="res://res/art/objects.png" id="2_usp1k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukgjx"]
+atlas = ExtResource("2_usp1k")
+region = Rect2(0, 50, 40, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8kkwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukgjx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iufx3"]
+size = Vector2(22, 34)
+
+[node name="chocobar" type="Area2D"]
+script = ExtResource("1_jhueg")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8kkwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(519, 392)
+shape = SubResource("RectangleShape2D_iufx3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
