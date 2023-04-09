@@ -49,7 +49,7 @@ shape = SubResource("RectangleShape2D_qjeul")
 [node name="ceiling" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
-position = Vector2(520, -40)
+position = Vector2(528, -48)
 shape = SubResource("RectangleShape2D_qjeul")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
@@ -70,6 +70,22 @@ position = Vector2(1024, 112)
 [node name="FireballSpawn2" type="Marker2D" parent="." groups=["fireball"]]
 position = Vector2(1024, 344)
 
+[node name="RestartText" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 288.0
+offset_top = 144.0
+offset_right = 736.0
+offset_bottom = 296.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]LMAO YOU DIED
+Time to restart!"
+
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
 [connection signal="timeout" from="TeethTimer" to="." method="_on_teeth_timer_timeout"]
 [connection signal="timeout" from="BlingTimer" to="." method="_on_bling_timer_timeout"]
 [connection signal="timeout" from="FireballTimer" to="." method="_on_fireball_timer_timeout"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
