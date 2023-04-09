@@ -9,7 +9,7 @@
 size = Vector2(1021.5, 102.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xs6i"]
-size = Vector2(69, 597)
+size = Vector2(69, 655.75)
 
 [node name="stage_1" type="Node"]
 script = ExtResource("1_tf1m8")
@@ -45,16 +45,22 @@ autostart = true
 position = Vector2(513.25, 547.25)
 shape = SubResource("RectangleShape2D_qjeul")
 
+[node name="ceiling" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
+position = Vector2(520, -40)
+shape = SubResource("RectangleShape2D_qjeul")
+
 [node name="LeftWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(-16, 301)
+position = Vector2(-16, 271.75)
 shape = SubResource("RectangleShape2D_8xs6i")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(1056, 304)
+position = Vector2(1040, 272)
 shape = SubResource("RectangleShape2D_8xs6i")
 
 [connection signal="timeout" from="TeethTimer" to="." method="_on_teeth_timer_timeout"]
