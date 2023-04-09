@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqg3n6t3l6kt8"]
+[gd_scene load_steps=22 format=3 uid="uid://bqg3n6t3l6kt8"]
 
 [ext_resource type="Script" path="res://stage_3.gd" id="1_1ppp3"]
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_5g0mm"]
 [ext_resource type="Texture2D" uid="uid://chq1jrs1f4r8x" path="res://res/art/sindy.png" id="1_pxiyw"]
 [ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="1_u8mmp"]
-[ext_resource type="PackedScene" path="res://quiz.tscn" id="5_4r6me"]
+[ext_resource type="Texture2D" uid="uid://d13w72kqgc5r" path="res://res/art/sindyBg.png" id="2_vajm3"]
+[ext_resource type="PackedScene" uid="uid://c4ce1u0gph3oj" path="res://quiz.tscn" id="5_4r6me"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi1vr"]
 atlas = ExtResource("1_pxiyw")
@@ -122,11 +123,22 @@ size = Vector2(48, 600)
 [node name="Stage3" type="Node2D"]
 script = ExtResource("1_1ppp3")
 
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(512, 300)
+texture = ExtResource("2_vajm3")
+
 [node name="bgsindy" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 300)
 sprite_frames = SubResource("SpriteFrames_qb4fp")
 animation = &"undab"
 autoplay = "mad"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 1032.0
+offset_bottom = 624.0
+color = Color(0.2, 0.298039, 0.333333, 0.313726)
 
 [node name="ground" type="StaticBody2D" parent="."]
 
@@ -145,6 +157,13 @@ shape = SubResource("RectangleShape2D_nke5w")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ground"]
 position = Vector2(1048, 300)
 shape = SubResource("RectangleShape2D_nke5w")
+
+[node name="ColorRect" type="ColorRect" parent="ground"]
+offset_left = -16.0
+offset_top = 496.0
+offset_right = 1040.0
+offset_bottom = 600.0
+color = Color(0.0899316, 0.211576, 0.23426, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_5g0mm")]
 position = Vector2(504, 472)
