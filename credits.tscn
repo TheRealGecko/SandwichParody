@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ho38b0y108ja"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_7sk1e"]
+[ext_resource type="Texture2D" uid="uid://dttvix0gk7w" path="res://res/art/credits.png" id="2_uf15f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk5ci"]
+atlas = ExtResource("2_uf15f")
+region = Rect2(0, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2837x"]
+atlas = ExtResource("2_uf15f")
+region = Rect2(1024, 0, 1024, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg0hu"]
+atlas = ExtResource("2_uf15f")
+region = Rect2(2048, 0, 1024, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akk8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk5ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2837x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg0hu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.4
+}]
+
+[node name="credits" type="Node"]
+script = ExtResource("1_7sk1e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(511, 301)
+sprite_frames = SubResource("SpriteFrames_akk8c")
+frame = 2
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
