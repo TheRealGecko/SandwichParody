@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 # controls love + hp gauges
 var hp = 5
@@ -16,35 +16,42 @@ func _ready():
 func _physics_process(delta):
 	# animations
 	if jmpCnt > 0:
-		get_node("Body/Sprite").animation = "jump"
+		get_node("Sprite").animation = "jump"
 	else:
-		get_node("Body/Sprite").animation = "idle"
+		get_node("Sprite").animation = "idle"
 	
 	# left/right
 	if Input.is_action_pressed("left"):
 		dir = "l"
-		get_node("Body/Sprite").flip_h = true
+		get_node("Sprite").flip_h = true
+		$CollisionShape.position.x = -40
 	elif Input.is_action_pressed("right"):
 		dir = "r"
-		get_node("Body/Sprite").flip_h = false
+		get_node("Sprite").flip_h = false
+		$CollisionShape.position.x = 0
 	else:
 		dir = ""
 	if dir == "l":
-		$Body.velocity.x = -300
+		self.velocity.x = -300
 	elif dir == "r":
-		$Body.velocity.x = 300
+		self.velocity.x = 300
 	else:
-		$Body.velocity.x = 0
+		self.velocity.x = 0
 	
 	#jumping
-	$Body.velocity.y += 30
+	self.velocity.y += 30
 	if Input.is_action_just_pressed("up") && jmpCnt != 2:
 		jmpCnt+=1
-		$Body.velocity.y = -850
+		self.velocity.y = -850
 		
 	#ac moves player	
-	collide = $Body.move_and_slide()
+	collide = move_and_slide()
 	
 	if collide:
 		jmpCnt = 0
 	
+
+func _on_area_entered(area):
+	if "Arm" in area.name:
+		print("hit")
+		hp-=1

@@ -168,5 +168,5 @@ autoplay = "0"
 position = Vector2(155.5, 547.5)
 scale = Vector2(0.275, 0.275)
 sprite_frames = SubResource("SpriteFrames_d8un3")
-animation = &"0"
+animation = &"1"
 autoplay = "5"

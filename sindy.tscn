@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://cicypf0co381m"]
+[gd_scene load_steps=6 format=3 uid="uid://cicypf0co381m"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://chq1jrs1f4r8x" path="res://res/art/sindy.png" id="1_4i11f"]
+[ext_resource type="Script" path="res://arm.gd" id="1_5uixv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc58a"]
+atlas = ExtResource("1_4i11f")
+region = Rect2(8192, 0, 1024, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqubd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc58a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o85wf"]
+radius = 48.0
+height = 1024.0
+
+[node name="Arm" type="Area2D"]
+position = Vector2(-504, 0)
+script = ExtResource("1_5uixv")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -184)
+sprite_frames = SubResource("SpriteFrames_aqubd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 8)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_o85wf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
