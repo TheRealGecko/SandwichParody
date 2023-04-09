@@ -30,6 +30,7 @@ sprite_frames = SubResource("SpriteFrames_b5h4p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xl32o")
+disabled = true
 
 [node name="DisappearTimer" type="Timer" parent="."]
 wait_time = 9.0

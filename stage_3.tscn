@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://bqg3n6t3l6kt8"]
 
-[ext_resource type="PackedScene" uid="uid://vi05liwbln31" path="res://player.tscn" id="1_5g0mm"]
+[ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_5g0mm"]
 [ext_resource type="Texture2D" uid="uid://chq1jrs1f4r8x" path="res://res/art/sindy.png" id="1_pxiyw"]
-[ext_resource type="PackedScene" uid="uid://dea5l8a2dvixj" path="res://ui.tscn" id="1_u8mmp"]
+[ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="1_u8mmp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi1vr"]
 atlas = ExtResource("1_pxiyw")

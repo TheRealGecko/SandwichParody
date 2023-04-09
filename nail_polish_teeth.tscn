@@ -48,6 +48,7 @@ sprite_frames = SubResource("SpriteFrames_yvss0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, 3.5)
 shape = SubResource("RectangleShape2D_wy65d")
+disabled = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
