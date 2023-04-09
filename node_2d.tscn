@@ -11,8 +11,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		print(get_parent().get_node(\"Player\").global_position.y);
-		$AnimationPlayer.play(\"stretch\")
+		var posY = get_node(\"res://scene_2.tscn\").get_node(\"Player\").global_position.y
+		#var posX = get_parent().get_node(\"Player\").global_position.x
+		#if(posX > 500):
+			#self.position.y = posY
+			#$AnimationPlayer.play(\"stretch\")
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qog18"]
