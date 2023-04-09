@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxdv3rvmeyoxk"]
+
+[ext_resource type="Texture2D" uid="uid://l60xq2wpb2wv" path="res://res/art/objects.png" id="1_1ch7q"]
+[ext_resource type="Script" path="res://fireball.gd" id="1_twc06"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r58xf"]
+atlas = ExtResource("1_1ch7q")
+region = Rect2(0, 0, 45, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uderf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r58xf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5twg"]
+radius = 15.0333
+
+[node name="Fireball" type="Area2D"]
+script = ExtResource("1_twc06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uderf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("CircleShape2D_b5twg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3, 2.5)
+scale = Vector2(1.6, 1.25)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -9,4 +9,9 @@ func _on_disappear_timer_timeout():
 
 
 func _on_body_entered(body):
-	print(body.get_name())
+	if body.get_name() == "Player":
+		get_parent().get_node("Player").love += 1
+		if get_parent().get_node("Player").love == 5:
+			get_parent()._win_game()
+		queue_free()
+		

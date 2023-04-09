@@ -21,19 +21,20 @@ position = Vector2(896, 401)
 position = Vector2(88, 472)
 
 [node name="TeethSpawn1" type="Marker2D" parent="." groups=["teeth"]]
-position = Vector2(1024, 288)
+position = Vector2(1024, 232)
 
 [node name="TeethSpawn2" type="Marker2D" parent="." groups=["teeth"]]
-position = Vector2(1024, 104)
-
-[node name="TeethSpawn3" type="Marker2D" parent="." groups=["teeth"]]
-position = Vector2(1024, 471)
+position = Vector2(1024, 440)
 
 [node name="TeethTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
 [node name="BlingTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="FireballTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
@@ -63,5 +64,12 @@ shape = SubResource("RectangleShape2D_8xs6i")
 position = Vector2(1040, 272)
 shape = SubResource("RectangleShape2D_8xs6i")
 
+[node name="FireballSpawn1" type="Marker2D" parent="." groups=["fireball"]]
+position = Vector2(1024, 112)
+
+[node name="FireballSpawn2" type="Marker2D" parent="." groups=["fireball"]]
+position = Vector2(1024, 344)
+
 [connection signal="timeout" from="TeethTimer" to="." method="_on_teeth_timer_timeout"]
 [connection signal="timeout" from="BlingTimer" to="." method="_on_bling_timer_timeout"]
+[connection signal="timeout" from="FireballTimer" to="." method="_on_fireball_timer_timeout"]
