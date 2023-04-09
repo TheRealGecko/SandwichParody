@@ -21,8 +21,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xl32o"]
 radius = 14.0357
 
-[node name="bling" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="bling" type="Area2D"]
 script = ExtResource("1_e3a44")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -36,4 +35,4 @@ disabled = true
 wait_time = 9.0
 autostart = true
 
-[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
