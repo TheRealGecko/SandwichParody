@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqg3n6t3l6kt8"]
+[gd_scene load_steps=21 format=3 uid="uid://bqg3n6t3l6kt8"]
 
 [ext_resource type="Script" path="res://stage_3.gd" id="1_1ppp3"]
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_5g0mm"]
@@ -114,7 +114,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1y7a"]
-size = Vector2(1021.5, 102.5)
+size = Vector2(1120, 102.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nke5w"]
+size = Vector2(48, 600)
 
 [node name="Stage3" type="Node2D"]
 script = ExtResource("1_1ppp3")
@@ -130,6 +133,18 @@ autoplay = "mad"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2(513.25, 547.25)
 shape = SubResource("RectangleShape2D_o1y7a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ground"]
+position = Vector2(512, -56)
+shape = SubResource("RectangleShape2D_o1y7a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ground"]
+position = Vector2(-24, 300)
+shape = SubResource("RectangleShape2D_nke5w")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ground"]
+position = Vector2(1048, 300)
+shape = SubResource("RectangleShape2D_nke5w")
 
 [node name="Player" parent="." instance=ExtResource("1_5g0mm")]
 position = Vector2(504, 472)

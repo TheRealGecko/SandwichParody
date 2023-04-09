@@ -7,10 +7,32 @@ var aBank = [["Plot", "Your mom", "R"], ["Your mom", "Ofc", "No??"], ["Kapitalis
 
 func _ready():
 	$Quiz.visible = false
-	#phaseOne()
-	quiz()
+	phaseOne()
 
 var q = 0
+
+func _win_game():
+	# idk bro
+	queue_free()
+
+func _game_over():
+	# mb add a u died screen here
+	get_tree().reload_current_scene()
+
+func _process(delta):
+	if $Player.hp <= 0:
+		_game_over()
+	if $Quiz.qDone == true:
+		$Quiz.qDone = false
+		if $Player.love < 5:
+			randomize()
+			q = randi()%2
+			if q == 0:
+				phaseOne()
+			elif q == 1:
+				phaseTwo()
+		else:
+			_win_game()
 
 func quiz():
 	$bgsindy.animation = "dab" 
@@ -26,11 +48,6 @@ func quiz():
 	
 	
 func phaseTwo():
-	$bgsindy.animation = "undab"
-	$bgsindy.play()
-	await get_tree().create_timer(0.5).timeout
-	$bgsindy.animation = "mad"
-	$bgsindy.play()
 	await get_tree().create_timer(1).timeout
 	lArm(450)
 	rArm(450)
@@ -46,6 +63,7 @@ func phaseTwo():
 	await get_tree().create_timer(1.5).timeout
 	lArm(250)
 	rArm(250)
+	await get_tree().create_timer(3).timeout
 	quiz()
 	
 

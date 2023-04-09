@@ -1,5 +1,6 @@
 extends Control
 
+var qDone = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,4 +33,9 @@ func _on_button_3_pressed():
 	cont()
 
 func cont():
-	get_parent().phaseTwo()
+	get_parent().get_node("bgsindy").animation = "undab"
+	get_parent().get_node("bgsindy").play()
+	await get_tree().create_timer(0.5).timeout
+	get_parent().get_node("bgsindy").animation = "mad"
+	get_parent().get_node("bgsindy").play()
+	qDone = true
