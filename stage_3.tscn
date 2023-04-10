@@ -217,3 +217,14 @@ offset_right = 769.0
 offset_bottom = 162.0
 theme_override_font_sizes/font_size = 15
 text = "Press enter to continue"
+
+[node name="RestartText" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 288.0
+offset_top = 144.0
+offset_right = 736.0
+offset_bottom = 296.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]LMAO YOU DIED
+Time to restart!"

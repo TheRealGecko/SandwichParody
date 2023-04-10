@@ -115,10 +115,11 @@ func end_dia():
 
 func _win_game():
 	# idk bro
-	queue_free()
+	get_tree().change_scene_to_file("res://credits.tscn")
 
 func _game_over():
-	# mb add a u died screen here
+	$RestartText.visible = true
+	get_tree().create_timer(2.5).timeout
 	get_tree().reload_current_scene()
 
 func _process(delta):
