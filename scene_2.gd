@@ -21,12 +21,14 @@ func _on_restart_timer_2_timeout():
 	
 func _win_game():
 	$chocobarTimer.stop()
-	$happydance.play("run")
+	$MacebethBounce/AnimatedSprite2D.play("sleep")
+	$MacebethBounce.set_velocity(Vector2(0, 0))
 
-
-	
 
 func _game_over():
 	$RestartText.visible = true
 	$RestartTimer.start()
 
+func _on_restart_timer_timeout():
+	$RestartText.visible = true
+	get_tree().reload_current_scene()

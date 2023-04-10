@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dona1foupgkuy"]
+[gd_scene load_steps=9 format=3 uid="uid://dqb0xn4j0l1o8"]
 
 [ext_resource type="Script" path="res://MacebethBounce.gd" id="1_c7heb"]
 [ext_resource type="Texture2D" uid="uid://cln7rhwkhsuj0" path="res://res/art/macbeth head.png" id="2_cu55p"]
 [ext_resource type="Script" path="res://Area2D.gd" id="3_52v8k"]
+[ext_resource type="Texture2D" uid="uid://cqv788s8e667u" path="res://res/art/happy-macbeth.png" id="3_wxy6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq60v"]
+atlas = ExtResource("3_wxy6q")
+region = Rect2(0, 0, 127, 161)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3828v"]
 animations = [{
@@ -12,6 +17,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq60v")
+}],
+"loop": true,
+"name": &"sleep",
 "speed": 5.0
 }]
 
@@ -27,6 +40,8 @@ script = ExtResource("1_c7heb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(120, -76)
 sprite_frames = SubResource("SpriteFrames_3828v")
+animation = &"sleep"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(118, -66)
