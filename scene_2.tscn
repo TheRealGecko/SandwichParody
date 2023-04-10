@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_3x3pt"]
 [ext_resource type="Script" path="res://scene_2.gd" id="1_6kw2m"]
-[ext_resource type="Texture2D" uid="uid://kht83h77g1c0" path="res://res/art/bethBg.png" id="2_ejibh"]
+[ext_resource type="Texture2D" path="res://res/art/bethBg.png" id="2_ejibh"]
 [ext_resource type="PackedScene" uid="uid://c8lqm027vfbno" path="res://node_2d.tscn" id="3_g0pu7"]
-[ext_resource type="PackedScene" uid="uid://dona1foupgkuy" path="res://macebeth_bounce.tscn" id="3_u2i0n"]
+[ext_resource type="PackedScene" uid="uid://dqb0xn4j0l1o8" path="res://macebeth_bounce.tscn" id="3_u2i0n"]
 [ext_resource type="PackedScene" uid="uid://rqdsojkpc373" path="res://chocobar.tscn" id="5_e0b4f"]
 [ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="6_bjtma"]
 
