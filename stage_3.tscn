@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://chq1jrs1f4r8x" path="res://res/art/sindy.png" id="1_pxiyw"]
 [ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="1_u8mmp"]
 [ext_resource type="Texture2D" uid="uid://d13w72kqgc5r" path="res://res/art/sindyBg.png" id="2_vajm3"]
-[ext_resource type="PackedScene" path="res://quiz.tscn" id="5_4r6me"]
+[ext_resource type="PackedScene" uid="uid://dnvwguwi5kwow" path="res://quiz.tscn" id="5_4r6me"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi1vr"]
 atlas = ExtResource("1_pxiyw")

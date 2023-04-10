@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=16 format=3 uid="uid://cr2k4majlqfh8"]
 
 [ext_resource type="Script" path="res://Control.gd" id="1_24on6"]
 [ext_resource type="Texture2D" uid="uid://da5uj81p0adsd" path="res://res/art/menu.png" id="2_fmydi"]
+=======
+[gd_scene load_steps=16 format=3 uid="uid://snn6vwh24ql"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_24on6"]
+[ext_resource type="Texture2D" path="res://res/art/menu.png" id="2_fmydi"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wl0k8"]
 atlas = ExtResource("2_fmydi")
