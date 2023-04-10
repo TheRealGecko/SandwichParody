@@ -228,3 +228,5 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]LMAO YOU DIED
 Time to restart!"
+
+[node name="Radio" type="AudioStreamPlayer2D" parent="."]

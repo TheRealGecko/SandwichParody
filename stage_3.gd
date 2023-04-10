@@ -89,6 +89,8 @@ var eDia = [
 
 func start_dia():
 	$Dia.visible = true
+	$Radio.stream = preload("res://res/sound/calm.ogg")
+	$Radio.play()
 	for d in sDia:
 		$Dia/Name.text = d[0]
 		$Dia/Text.text = d[1]
@@ -97,11 +99,15 @@ func start_dia():
 			$bgsindy.play()
 		await Signal(self, "next_dia")
 	$Dia.visible = false
+	$Radio.stream = preload("res://res/sound/fight.ogg")
+	$Radio.play()
 	phaseOne()
 
 
 func end_dia():
 	$Dia.visible = true
+	$Radio.stream = preload("res://res/sound/calm.ogg")
+	$Radio.play()
 	for d in eDia:
 		$Dia/Name.text = d[0]
 		$Dia/Text.text = d[1]

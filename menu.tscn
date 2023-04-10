@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cug0qqf548o2w"]
+[gd_scene load_steps=17 format=3 uid="uid://cug0qqf548o2w"]
 
 [ext_resource type="Script" path="res://Control.gd" id="1_24on6"]
 [ext_resource type="Texture2D" uid="uid://da5uj81p0adsd" path="res://res/art/menu.png" id="2_fmydi"]
+[ext_resource type="AudioStream" uid="uid://u8sp82clw6at" path="res://res/sound/fight.ogg" id="3_rb5rs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wl0k8"]
 atlas = ExtResource("2_fmydi")
@@ -118,5 +119,9 @@ grow_vertical = 2
 theme = SubResource("Theme_ko2i5")
 theme_override_font_sizes/font_size = 30
 text = "Start"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rb5rs")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -45,6 +45,8 @@ func start_dia():
 		$Dia/Text.text = d[1]
 		await Signal(self, "next_dia")
 	$Dia.visible = false
+	$Radio.stream = preload("res://res/sound/fight.ogg")
+	$Radio.play()
 	$youmax/AnimatedSprite2D.play("attack")
 	$TeethTimer.start()
 	$BlingTimer.start()
@@ -52,6 +54,8 @@ func start_dia():
 
 func end_dia():
 	$Dia.visible = true
+	$Radio.stream = preload("res://res/sound/calm.ogg")
+	$Radio.play()
 	$youmax/AnimatedSprite2D.play("sleepy")
 	for d in eDia:
 		$Dia/Name.text = d[0]
