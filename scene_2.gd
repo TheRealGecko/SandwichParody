@@ -12,7 +12,6 @@ var isDia = true
 
 func start_dia():
 	$Dia.visible = true
-	$chocobar.visible = false
 	for d in sDia:
 		$Dia/Name.text = d[0]
 		$Dia/Text.text = d[1]
@@ -20,8 +19,6 @@ func start_dia():
 	$Dia.visible = false
 	$Radio.stream = preload("res://res/sound/fight.ogg")
 	$Radio.play()
-	$chocobar.visible = true
-	true
 	isDia = false
 
 var sDia = [
@@ -41,6 +38,40 @@ var sDia = [
 	["Batdoon","..."],
 	["Paul","Keep in mind to collect chocolate🍫 to pacify Macbeth!"],
 	["Batdoon","So just like Youmax? Why are these creatures so simple-minded? 😔"]
+]
+
+func end_dia():
+	$Dia.visible = true
+	isDia = true
+	$Radio.stream = preload("res://res/sound/calm.ogg")
+	$Radio.play()
+	for d in eDia:
+		$Dia/Name.text = d[0]
+		$Dia/Text.text = d[1]
+		if "heart" in $Dia/Text.text:
+			$bgsindy.animation = "happy"
+			$bgsindy.play()
+		await Signal(self, "next_dia")
+	$Dia.visible = false
+	get_tree().change_scene_to_file("res://stage_3.tscn")
+
+var eDia = [
+	["Paul","Aw, look at this little kitty, all wrapped up like a croissant. 🥐
+	You could adopt Macbeth if you want to, you know. ;)"],
+	["Batdoon","Nahhh, I’m not looking to be killed by my own pet anytime soon."],
+	["Paul","GASP! That’s the longest sentence you’ve said to me yet. I’m so touched,
+	you’re finally seeing me as a reliable senior. *sniffles*"],
+	["Batdoon","(Geez, what a pushover.) *ignores Paul*"],
+	["Batdoon","Oh look, another L."],
+	["Paul","Fantastic! Now I shall teach you the power of the Ls 😌"],
+	["Paul","Back in my day, the Ls would join hands to become a W. Do you know the
+	saying, young child?"],
+	["Paul","“Two Ls make a W.” *old, wizened expression*"],
+	["Batdoon","??? So what?"],
+	["Batdoon","(Actually, I’ve heard my grandmother mention this to me. But I thought
+	she was being silly, like most old people)"],
+	["Paul","It’s something of a mystery, but a W can grant great power to those in need.
+	Hold onto it, for now, young traveller."]
 ]
 
 var Player = preload("res://player.tscn").instantiate()
@@ -64,6 +95,7 @@ func _win_game():
 	$chocobarTimer.stop()
 	$MacebethBounce/AnimatedSprite2D.play("sleep")
 	$MacebethBounce.set_velocity(Vector2(0, 0))
+	end_dia()
 
 
 func _game_over():
