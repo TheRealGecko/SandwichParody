@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://nyyh62k562h4"]
+[gd_scene load_steps=7 format=3 uid="uid://nyyh62k562h4"]
 
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_3x3pt"]
 [ext_resource type="PackedScene" uid="uid://c8lqm027vfbno" path="res://node_2d.tscn" id="3_g0pu7"]
+[ext_resource type="PackedScene" uid="uid://dona1foupgkuy" path="res://macebeth_bounce.tscn" id="3_u2i0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gemq"]
 size = Vector2(1021.5, 102.5)
@@ -9,9 +10,16 @@ size = Vector2(1021.5, 102.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwvtv"]
 size = Vector2(39.5, 601)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o3yi"]
+size = Vector2(1008, 20)
+
 [node name="scene2" type="Node2D"]
 
+[node name="MacebethBounce" parent="." instance=ExtResource("3_u2i0n")]
+position = Vector2(458, 164)
+
 [node name="Player" parent="." instance=ExtResource("1_3x3pt")]
+position = Vector2(162, 68)
 
 [node name="ground" type="StaticBody2D" parent="."]
 
@@ -26,7 +34,7 @@ position = Vector2(998, 298)
 shape = SubResource("RectangleShape2D_mwvtv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
-position = Vector2(24.25, 297.5)
+position = Vector2(25, 290)
 shape = SubResource("RectangleShape2D_mwvtv")
 
 [node name="chocobarTimer" type="Timer" parent="."]
@@ -34,5 +42,11 @@ wait_time = 3.071
 autostart = true
 
 [node name="tail" parent="." instance=ExtResource("3_g0pu7")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(514, 0)
+shape = SubResource("RectangleShape2D_7o3yi")
 
 [connection signal="timeout" from="chocobarTimer" to="." method="_on_chocobar_timer_timeout"]
