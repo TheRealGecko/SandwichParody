@@ -58,7 +58,8 @@ func end_dia():
 		$Dia/Text.text = d[1]
 		await Signal(self, "next_dia")
 	$Dia.visible = false
-	queue_free()
+	get_tree().change_scene_to_file("res://scene_2.tscn")
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("enter") && $Dia.visible == true:
