@@ -52,14 +52,21 @@ position = Vector2(530, 302)
 position = Vector2(9, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(514, 0)
+position = Vector2(511, 12)
 shape = SubResource("RectangleShape2D_7o3yi")
 
-[node name="restartTimer2" type="Timer" parent="."]
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 2.5
 
 [node name="RestartText" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+offset_top = 184.0
+offset_right = 1016.0
+offset_bottom = 408.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]LMAO YOU DIED
+Time to restart!"
 
 [node name="chocobar" parent="." instance=ExtResource("5_e0b4f")]
 position = Vector2(295, 218)
@@ -111,4 +118,4 @@ theme_override_font_sizes/font_size = 15
 text = "Press enter to continue"
 
 [connection signal="timeout" from="chocobarTimer" to="." method="_on_chocobar_timer_timeout"]
-[connection signal="timeout" from="restartTimer2" to="." method="_on_restart_timer_2_timeout"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]

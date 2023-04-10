@@ -10,4 +10,6 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if "Player" in body.name && get_parent().isDia == false:
 		get_parent().get_node("Player").hp -= 1
+		if get_parent().get_node("Player").hp == 0:
+			get_parent()._game_over()
 
