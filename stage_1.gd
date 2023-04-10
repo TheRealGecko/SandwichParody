@@ -17,14 +17,14 @@ var sDia = [["Batdoon", "*wanders into Youmax’s cave* Ohohoho, so many shiny j
 ]
 
 var eDia = [["Youmax", "Zzzz…"],
-["Paul", "My, my! Well done, young hero! 😌 Youmax can be quite feisty with other beings, but after giving her enough bling she’s just a drowsy desirous dragon. See, she’s even asleep, a great show of friendship to you!"],
+["Paul", "My, my! Well done, young hero! 😌 Youmax can be quite feisty with other \n beings, but after giving her enough bling she’s just a drowsy desirous dragon. See, \n she’s even asleep, a great show of friendship to you!"],
 ["Paul", "Very commendable performance dodging those nail polish-covered teeth. 😌"],
 ["Paul", "Why nail polish-covered teeth, you ask?"],
 ["Batdoon", "No one asked."],
-["Paul", "Because this tiny little dragon loves to add a little glam into her life and teeth are simply the best place for that. :)"],
+["Paul", "Because this tiny little dragon loves to add a little glam into her life \n and teeth are simply the best place for that. :)"],
 ["Batdoon", "BTW, what is this L that Youmax left behind?"],
-["Paul", "Ah! This is what I meant by “taking the L.” It may seem useless now, but no worries my budding fellow, it’ll aid you when you need it most."],
-["Batdoon", "(Goodness gracious, being with this old-timer is truly a painful experience. It feels as though my ears are chipping away the more I hear them talk. Do they really need to say the first thing that comes to mind?)"],
+["Paul", "Ah! This is what I meant by “taking the L.” It may seem useless now, but \n no worries my budding fellow, it’ll aid you when you need it most."],
+["Batdoon", "(Goodness gracious, being with this old-timer is truly a painful experience. \n It feels as though my ears are chipping away the more I hear them talk. \n Do they really need to say the first thing that comes to mind?)"],
 ["Batdoon", "Ew, you’re so weird."],
 ["Paul", "GASP! My feelings!!"]
 ]
@@ -88,6 +88,10 @@ func _win_game():
 	$TeethTimer.stop()
 	$BlingTimer.stop()
 	$FireballTimer.stop()
+	for node in get_children():
+		print(node.get_name())
+		if "bling" in node.get_name() or "nail_polish_teeth" in node.get_name() or "fireball" in node.get_name():
+			node.queue_free() 
 	end_dia()
 
 func _game_over():

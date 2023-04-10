@@ -14,3 +14,5 @@ func _process(delta):
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://stage_1.tscn")
+	#switch to stage 2 here
+	get_tree().change_scene_to_file("res://stage_3.tscn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://nyyh62k562h4"]
+[gd_scene load_steps=8 format=3 uid="uid://nyyh62k562h4"]
 
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_3x3pt"]
+[ext_resource type="Script" path="res://scene_2.gd" id="1_7rldr"]
 [ext_resource type="PackedScene" uid="uid://c8lqm027vfbno" path="res://node_2d.tscn" id="3_g0pu7"]
-[ext_resource type="PackedScene" uid="uid://dona1foupgkuy" path="res://macebeth_bounce.tscn" id="3_u2i0n"]
+[ext_resource type="PackedScene" path="res://macebeth_bounce.tscn" id="3_u2i0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gemq"]
 size = Vector2(1021.5, 102.5)
@@ -14,12 +15,13 @@ size = Vector2(39.5, 601)
 size = Vector2(1008, 20)
 
 [node name="scene2" type="Node2D"]
+script = ExtResource("1_7rldr")
 
 [node name="MacebethBounce" parent="." instance=ExtResource("3_u2i0n")]
 position = Vector2(458, 164)
 
 [node name="Player" parent="." instance=ExtResource("1_3x3pt")]
-position = Vector2(162, 68)
+position = Vector2(152, 472)
 
 [node name="ground" type="StaticBody2D" parent="."]
 
