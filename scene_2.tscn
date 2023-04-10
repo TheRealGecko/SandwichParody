@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://nyyh62k562h4"]
+[gd_scene load_steps=10 format=3 uid="uid://nyyh62k562h4"]
 
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="1_3x3pt"]
+[ext_resource type="Script" path="res://scene_2.gd" id="1_6kw2m"]
 [ext_resource type="PackedScene" uid="uid://c8lqm027vfbno" path="res://node_2d.tscn" id="3_g0pu7"]
 [ext_resource type="PackedScene" uid="uid://dona1foupgkuy" path="res://macebeth_bounce.tscn" id="3_u2i0n"]
+[ext_resource type="PackedScene" uid="uid://dhhub6p0f5bh1" path="res://chocobar.tscn" id="5_e0b4f"]
+[ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="6_bjtma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gemq"]
 size = Vector2(1021.5, 102.5)
@@ -14,6 +17,7 @@ size = Vector2(39.5, 601)
 size = Vector2(1008, 20)
 
 [node name="scene2" type="Node2D"]
+script = ExtResource("1_6kw2m")
 
 [node name="MacebethBounce" parent="." instance=ExtResource("3_u2i0n")]
 position = Vector2(458, 164)
@@ -42,11 +46,25 @@ wait_time = 3.071
 autostart = true
 
 [node name="tail" parent="." instance=ExtResource("3_g0pu7")]
+position = Vector2(530, 302)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(9, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(514, 0)
 shape = SubResource("RectangleShape2D_7o3yi")
 
+[node name="restartTimer2" type="Timer" parent="."]
+
+[node name="RestartText" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="chocobar" parent="." instance=ExtResource("5_e0b4f")]
+position = Vector2(295, 218)
+
+[node name="UI" parent="." instance=ExtResource("6_bjtma")]
+
 [connection signal="timeout" from="chocobarTimer" to="." method="_on_chocobar_timer_timeout"]
+[connection signal="timeout" from="restartTimer2" to="." method="_on_restart_timer_2_timeout"]
