@@ -19,6 +19,7 @@ func start_dia():
 	$Dia.visible = false
 	$Radio.stream = preload("res://res/sound/fight.ogg")
 	$Radio.play()
+	$chocobarTimer.start()
 	isDia = false
 
 var sDia = [
@@ -42,6 +43,7 @@ var sDia = [
 
 func end_dia():
 	$Dia.visible = true
+	$chocobarTimer.start()
 	isDia = true
 	$Radio.stream = preload("res://res/sound/calm.ogg")
 	$Radio.play()
@@ -85,7 +87,7 @@ func _on_chocobar_timer_timeout():
 		randomize()
 		var choco = preload("res://chocobar.tscn").instantiate()
 		add_child(choco)
-		choco.position = Vector2(randf_range(220, 770), randf_range(70, 490))
+		choco.position = Vector2(randf_range(180, 770), randf_range(140, 490))
 
 
 func _on_restart_timer_2_timeout():

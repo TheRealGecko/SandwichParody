@@ -49,7 +49,6 @@ shape = SubResource("RectangleShape2D_mwvtv")
 
 [node name="chocobarTimer" type="Timer" parent="."]
 wait_time = 3.071
-autostart = true
 
 [node name="tail" parent="." instance=ExtResource("3_g0pu7")]
 position = Vector2(530, 302)
