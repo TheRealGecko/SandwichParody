@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwrxvahmlndce"]
 
 [ext_resource type="Script" path="res://stage_1.gd" id="1_tf1m8"]
-[ext_resource type="Texture2D" uid="uid://cuaael14lu0fy" path="res://res/art/youmin-bg.png" id="2_qlcse"]
+[ext_resource type="Texture2D" path="res://res/art/youmin-bg.png" id="2_qlcse"]
 [ext_resource type="PackedScene" uid="uid://rtqheocqaykx" path="res://youmax.tscn" id="3_s7ljw"]
 [ext_resource type="PackedScene" uid="uid://dtkcx442xp3ny" path="res://ui.tscn" id="4_0f2bu"]
 [ext_resource type="PackedScene" uid="uid://b0ov5lkgyb8st" path="res://player.tscn" id="4_klmyt"]
