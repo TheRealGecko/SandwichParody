@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SandwichParody"
-run/main_scene="res://stage_3.tscn"
+run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1024
 window/size/viewport_height=600
 window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 
