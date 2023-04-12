@@ -125,7 +125,7 @@ func _win_game():
 
 func _game_over():
 	$RestartText.visible = true
-	get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(2.5).timeout
 	get_tree().reload_current_scene()
 
 func _process(delta):
